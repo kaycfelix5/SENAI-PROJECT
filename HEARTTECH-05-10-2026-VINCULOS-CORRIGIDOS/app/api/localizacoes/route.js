@@ -1,7 +1,11 @@
+
 import { NextResponse } from "next/server";
 import pool from "@/app/lib/db";
 import { requireSession } from "@/app/lib/auth";
-import { listarPortadoresAcessiveis, podeAcessarPortador } from "@/app/lib/portador-access";
+import {
+  listarPortadoresAcessiveis,
+  podeAcessarPortador,
+} from "@/app/lib/portador-access";
 
 /* ================================================================ */
 /* GET — ÚLTIMAS LOCALIZAÇÕES                                      */
@@ -9,15 +13,23 @@ import { listarPortadoresAcessiveis, podeAcessarPortador } from "@/app/lib/porta
 
 export async function GET(request) {
   const auth = requireSession(request);
+
   if (!auth.ok) return auth.response;
 
   try {
     const { searchParams } = new URL(request.url);
     const portadorId = searchParams.get("portadorId");
 
-    if (portadorId && !(await podeAcessarPortador(auth.session, portadorId))) {
+    if (
+      portadorId &&
+      !(await podeAcessarPortador(auth.session, portadorId))
+    ) {
       return NextResponse.json(
-        { success: false, error: "Você não possui acesso à localização deste portador." },
+        {
+          success: false,
+          error:
+            "Você não possui acesso à localização deste portador.",
+        },
         { status: 403 }
       );
     }
@@ -59,7 +71,10 @@ export async function GET(request) {
       const ids = await listarPortadoresAcessiveis(auth.session);
 
       if (ids.length === 0) {
-        return NextResponse.json({ success: true, localizacoes: [] });
+        return NextResponse.json({
+          success: true,
+          localizacoes: [],
+        });
       }
 
       result = await pool.query(
@@ -103,12 +118,14 @@ export async function GET(request) {
 
 export async function POST(request) {
   const auth = requireSession(request);
+
   if (!auth.ok) return auth.response;
 
   try {
     const body = await request.json();
 
     const portadorId = body.portadorId;
+
     const latitude = Number(body.latitude);
     const longitude = Number(body.longitude);
 
@@ -128,6 +145,10 @@ export async function POST(request) {
 
     const registradaEm =
       body.timestamp || body.registradaEm || null;
+
+    /* ============================================================ */
+    /* VALIDAÇÕES                                                   */
+    /* ============================================================ */
 
     if (!portadorId) {
       return NextResponse.json(
@@ -182,12 +203,17 @@ export async function POST(request) {
       );
     }
 
-
+    /*
+     * A precisão do GPS pode ser maior que 10.000 metros,
+     * principalmente quando a localização é obtida por um computador.
+     *
+     * O campo do banco NUMERIC(8,2) suporta até 999999.99.
+     */
     if (
       precisao !== null &&
       (!Number.isFinite(precisao) ||
         precisao < 0 ||
-        precisao > 10000)
+        precisao > 999999.99)
     ) {
       return NextResponse.json(
         {
@@ -197,6 +223,10 @@ export async function POST(request) {
         { status: 400 }
       );
     }
+
+    /* ============================================================ */
+    /* VERIFICA SE O PORTADOR EXISTE                                */
+    /* ============================================================ */
 
     const portadorExiste = await pool.query(
       `
@@ -218,15 +248,24 @@ export async function POST(request) {
       );
     }
 
+    /* ============================================================ */
+    /* VERIFICA PERMISSÃO                                           */
+    /* ============================================================ */
+
     if (!(await podeAcessarPortador(auth.session, portadorId))) {
       return NextResponse.json(
         {
           success: false,
-          error: "Você não possui permissão para registrar localização deste portador.",
+          error:
+            "Você não possui permissão para registrar localização deste portador.",
         },
         { status: 403 }
       );
     }
+
+    /* ============================================================ */
+    /* INSERE LOCALIZAÇÃO                                           */
+    /* ============================================================ */
 
     const result = await pool.query(
       `
@@ -239,7 +278,11 @@ export async function POST(request) {
         registrada_em
       )
       VALUES (
-        $1, $2, $3, $4, $5,
+        $1,
+        $2,
+        $3,
+        $4,
+        $5,
         COALESCE($6::timestamp, CURRENT_TIMESTAMP)
       )
       RETURNING
@@ -261,10 +304,10 @@ export async function POST(request) {
       ]
     );
 
-    /*
-     * Também atualiza a bateria do portador,
-     * quando ela foi enviada.
-     */
+    /* ============================================================ */
+    /* ATUALIZA BATERIA DO PORTADOR                                 */
+    /* ============================================================ */
+
     if (bateria !== null) {
       await pool.query(
         `
