@@ -68,15 +68,17 @@ export async function POST(request) {
       );
     }
 
-    if (
+    /*
+     * A precisão do GPS pode ser alta dependendo da rede/dispositivo.
+     * Valores ausentes ou inválidos não devem bloquear a localização.
+     * O campo do PostgreSQL é NUMERIC(8,2), então limitamos o máximo.
+     */
+    const precisaoFinal =
       precisao !== null &&
-      (!Number.isFinite(precisao) || precisao < 0 || precisao > 10000)
-    ) {
-      return NextResponse.json(
-        { success: false, error: "Precisão GPS inválida." },
-        { status: 400 }
-      );
-    }
+      Number.isFinite(precisao) &&
+      precisao >= 0
+        ? Math.min(precisao, 999999.99)
+        : null;
 
     const portadorResult = await pool.query(
       `
@@ -124,7 +126,7 @@ export async function POST(request) {
         precisao_metros AS "precisao",
         registrada_em AS "registradaEm"
       `,
-      [portador.id, latitude, longitude, battery, precisao, timestamp]
+      [portador.id, latitude, longitude, battery, precisaoFinal, timestamp]
     );
 
     if (battery !== null) {

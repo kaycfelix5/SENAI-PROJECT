@@ -209,20 +209,18 @@ export async function POST(request) {
      *
      * O campo do banco NUMERIC(8,2) suporta até 999999.99.
      */
-    if (
+    /*
+     * A precisão do navegador pode ser grande ou até ausente.
+     * Quando o valor não é utilizável, armazenamos null em vez de
+     * bloquear o registro da localização. Quando é válido, limitamos
+     * ao maior valor suportado por NUMERIC(8,2).
+     */
+    const precisaoFinal =
       precisao !== null &&
-      (!Number.isFinite(precisao) ||
-        precisao < 0 ||
-        precisao > 999999.99)
-    ) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: "Precisão GPS inválida.",
-        },
-        { status: 400 }
-      );
-    }
+      Number.isFinite(precisao) &&
+      precisao >= 0
+        ? Math.min(precisao, 999999.99)
+        : null;
 
     /* ============================================================ */
     /* VERIFICA SE O PORTADOR EXISTE                                */
@@ -299,7 +297,7 @@ export async function POST(request) {
         latitude,
         longitude,
         bateria,
-        precisao,
+        precisaoFinal,
         registradaEm,
       ]
     );

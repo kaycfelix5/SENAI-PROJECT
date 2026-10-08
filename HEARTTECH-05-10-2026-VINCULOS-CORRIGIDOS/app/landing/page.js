@@ -2669,7 +2669,10 @@ export default function LandingPage() {
                         .longitude,
 
                     precisao:
-                      position.coords.accuracy,
+                      Number.isFinite(position.coords.accuracy) &&
+                      position.coords.accuracy >= 0
+                        ? position.coords.accuracy
+                        : null,
 
                     bateria,
                   }),
