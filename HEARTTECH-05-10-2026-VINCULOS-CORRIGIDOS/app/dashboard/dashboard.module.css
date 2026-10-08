@@ -1,0 +1,1104 @@
+.dashboardWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--neutral-50);
+  position: relative;
+}
+
+/* TOP TOAST NOTIFICATION */
+.toastContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 380px;
+  width: 100%;
+}
+
+.toastItem {
+  background: #ffffff;
+  border-left: 5px solid var(--ar-blue);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-top: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.toastIcon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.toastBody {
+  flex: 1;
+}
+
+.toastTitle {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--ar-blue-dark);
+  font-family: var(--font-heading);
+  margin-bottom: 2px;
+}
+
+.toastDesc {
+  font-size: 0.825rem;
+  color: var(--neutral-600);
+  line-height: 1.4;
+}
+
+.toastClose {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* NAVBAR LOGADA */
+.dashNavbar {
+  background: #ffffff;
+  border-bottom: 2px solid #eef2f6;
+  box-shadow: 0 2px 10px rgba(0, 76, 151, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.dashNavContainer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.dashBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--ar-blue-dark);
+}
+
+.quickRoleSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--neutral-100);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--neutral-200);
+}
+
+.roleSwitchBtn {
+  background: transparent;
+  border: none;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: var(--neutral-600);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-heading);
+}
+
+.roleSwitchBtn:hover {
+  color: var(--ar-blue);
+}
+
+.roleSwitchBtn.activeRole {
+  background: #ffffff;
+  color: var(--ar-blue-dark);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.dashUserArea {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.userRoleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.775rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+}
+
+.badgePortador {
+  background: var(--ar-blue-soft);
+  color: var(--ar-blue);
+  border: 1px solid #bfdbfe;
+}
+
+.badgeAcompanhante {
+  background: var(--ar-yellow-soft);
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.badgeAdmin {
+  background: #ede9fe;
+  color: #6b21a8;
+  border: 1px solid #ddd6fe;
+}
+
+.logoutBtn {
+  background: transparent;
+  border: 1.5px solid var(--neutral-300);
+  color: var(--neutral-700);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-heading);
+}
+
+.logoutBtn:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+/* MAIN CONTENT */
+.dashMain {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+  width: 100%;
+}
+
+.welcomeHeader {
+  margin-bottom: 24px;
+}
+
+.welcomeTitle {
+  font-family: var(--font-heading);
+  font-size: 1.95rem;
+  font-weight: 900;
+  color: var(--ar-blue-dark);
+  margin-bottom: 4px;
+}
+
+.welcomeSubtitle {
+  font-size: 0.95rem;
+  color: var(--neutral-600);
+}
+
+/* SUB-ABAS */
+.acompTabsNav, .portadorTabsNav {
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid var(--neutral-200);
+  margin-bottom: 26px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.acompTabBtn, .portadorTabBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: var(--neutral-500);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: var(--font-heading);
+}
+
+.acompTabBtn:hover, .portadorTabBtn:hover {
+  color: var(--ar-blue);
+}
+
+.acompTabBtn.acompTabActive, .portadorTabBtn.portadorTabActive {
+  color: var(--ar-blue);
+  border-bottom-color: var(--ar-blue);
+}
+
+/* =================================================== */
+/* 1. SEÇÃO MEUS PORTADORES (ACOMPANHANTE)            */
+/* =================================================== */
+.portadoresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.portadorCard {
+  background: #ffffff;
+  border: 1.5px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.portadorCard:hover {
+  border-color: var(--ar-blue);
+  box-shadow: var(--shadow-md);
+}
+
+.portadorCard.selectedPortador {
+  border-color: var(--ar-blue);
+  background: #f0f7ff;
+  box-shadow: 0 0 0 2px rgba(0, 102, 192, 0.15);
+}
+
+.portadorCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.portadorInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.portadorAvatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--ar-blue-soft);
+  color: var(--ar-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.portadorName {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ar-blue-dark);
+  font-family: var(--font-heading);
+}
+
+.portadorMeta {
+  font-size: 0.8rem;
+  color: var(--neutral-500);
+}
+
+.portadorStatusPill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.statusGreen {
+  background: var(--ar-green-soft);
+  color: var(--ar-green);
+  border: 1px solid #bbf7d0;
+}
+
+.statusYellow {
+  background: var(--ar-yellow-soft);
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.portadorDetailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--neutral-200);
+  font-size: 0.8rem;
+}
+
+.portadorDetailItem {
+  color: var(--neutral-600);
+}
+
+.portadorDetailItem strong {
+  color: var(--ar-blue-dark);
+  display: block;
+}
+
+.portadorCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--neutral-200);
+}
+
+.btnUnbindPortador {
+  background: transparent;
+  border: 1px solid #fecdd3;
+  color: #e11d48;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btnUnbindPortador:hover {
+  background: #fff1f2;
+  border-color: #fb7185;
+  color: #be123c;
+}
+
+.btnAttachNew {
+  background: #ffffff;
+  border: 2px dashed #94a3b8;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--ar-blue);
+  font-weight: 700;
+  min-height: 180px;
+  font-family: var(--font-heading);
+}
+
+.btnAttachNew:hover {
+  background: var(--ar-blue-soft);
+  border-color: var(--ar-blue);
+}
+
+/* =================================================== */
+/* 2. SEÇÃO ROTINAS & METAS                           */
+/* =================================================== */
+.routineGoalsContainer {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+}
+
+.cardBox {
+  background: #ffffff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cardBoxTitle {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ar-blue-dark);
+  margin-bottom: 6px;
+}
+
+.cardBoxSubtitle {
+  font-size: 0.875rem;
+  color: var(--neutral-500);
+  margin-bottom: 20px;
+}
+
+.routineListAcomp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.routineItemAcomp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+}
+
+.routineTimeBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--ar-blue-soft);
+  color: var(--ar-blue-dark);
+}
+
+.removeTaskBtn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px;
+}
+
+.removeTaskBtn:hover {
+  color: #ef4444;
+}
+
+.addRoutineForm {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.inputTask {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid var(--neutral-300);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.inputTask:focus {
+  border-color: var(--ar-blue);
+}
+
+/* Metas (Goals) */
+.goalsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.goalCard {
+  background: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.goalTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.goalTitle {
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: var(--neutral-800);
+}
+
+.goalProgressVal {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ar-blue);
+}
+
+.goalProgressBar {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.goalProgressFill {
+  height: 100%;
+  background: var(--ar-blue);
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+.goalActionBtns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btnGoalStep {
+  background: #ffffff;
+  border: 1px solid var(--neutral-300);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-heading);
+}
+
+.btnGoalStep:hover {
+  background: var(--ar-blue-soft);
+  border-color: var(--ar-blue);
+  color: var(--ar-blue);
+}
+
+/* =================================================== */
+/* 3. SEÇÃO LOCALIZAÇÃO & CERCA VIRTUAL (GEOFENCING)   */
+/* =================================================== */
+.locationSection {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+}
+
+.mapVisualCard {
+  background: #ffffff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.mapContainer {
+  height: 380px;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at center, #f0f7ff 0%, #e2e8f0 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--neutral-300);
+  cursor: crosshair;
+}
+
+.mapGridPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to right, rgba(0, 102, 192, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 102, 192, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.geofenceCircle {
+  position: absolute;
+  border: 2.5px dashed rgba(0, 102, 192, 0.5);
+  background: rgba(0, 163, 224, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.pinAcompanhante {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ar-blue);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 10px rgba(0, 102, 192, 0.4);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.pinPortador {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ar-yellow);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 10px rgba(243, 146, 0, 0.4);
+  z-index: 6;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.pulseWave {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(243, 146, 0, 0.25);
+  animation: pulseGlow 1.8s infinite;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.mapControlsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.geofenceCard {
+  background: #ffffff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+}
+
+.distanceStatusBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 18px;
+}
+
+.statusSafe {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+}
+
+.statusAlert {
+  background: #fef2f2;
+  border: 1px solid #fecdd3;
+  color: #991b1b;
+}
+
+.distanceNumber {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.rangeSlider {
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: #cbd5e1;
+  outline: none;
+  cursor: pointer;
+  margin: 12px 0 6px;
+}
+
+/* =================================================== */
+/* 4. BOTÃO DE EMERGÊNCIA / ACIONAR AUTORIDADES        */
+/* =================================================== */
+.emergencyPanel {
+  background: linear-gradient(135deg, #fff1f2 0%, #fee2e2 100%);
+  border: 2px solid #fca5a5;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+}
+
+.emergencyTitle {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #991b1b;
+  margin-bottom: 6px;
+}
+
+.emergencyDesc {
+  font-size: 0.85rem;
+  color: #7f1d1d;
+  margin-bottom: 18px;
+  line-height: 1.45;
+}
+
+.btnCallAuthorities {
+  background: #dc2626;
+  color: white;
+  padding: 14px 24px;
+  border-radius: var(--radius-full);
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+  transition: all 0.2s ease;
+  font-family: var(--font-heading);
+}
+
+.btnCallAuthorities:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(220, 38, 38, 0.45);
+}
+
+/* =================================================== */
+/* 5. ESTILOS ESPECÍFICOS DO PORTADOR                 */
+/* =================================================== */
+.cardPortador {
+  background: #ffffff;
+  border: 1.5px solid var(--neutral-200);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+}
+
+.cardTitleBig {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--ar-blue-dark);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feelingsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+.feelingBtn {
+  background: #f8fafc;
+  border: 2px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  padding: 18px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.feelingBtn:hover {
+  transform: translateY(-2px);
+  border-color: var(--ar-blue);
+  background: var(--ar-blue-soft);
+}
+
+.feelingBtn.feelingActive {
+  background: var(--ar-blue-soft);
+  border-color: var(--ar-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 192, 0.15);
+}
+
+.feelingEmoji {
+  font-size: 2.2rem;
+}
+
+.feelingLabel {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--neutral-800);
+}
+
+.routineChecklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.routineCheckItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border: 2px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.routineCheckItem:hover {
+  border-color: var(--ar-blue);
+  background: var(--ar-blue-soft);
+}
+
+.routineCheckItem.checked {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.checkboxVisual {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 2.5px solid #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.routineCheckItem.checked .checkboxVisual {
+  background: #16a34a;
+  border-color: #16a34a;
+}
+
+.routineText {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--neutral-800);
+  flex: 1;
+}
+
+.routineCheckItem.checked .routineText {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+/* =================================================== */
+/* 6. EXERCÍCIO DE RESPIRAÇÃO (BOX BREATHING ANIMADO)  */
+/* =================================================== */
+@keyframes breatheScale {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 1; }
+}
+
+.breathingVisualContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+}
+
+.breathingCircle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00a3e0 0%, #0066c0 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  box-shadow: 0 0 30px rgba(0, 163, 224, 0.4);
+  transition: all 1s ease;
+}
+
+.breathingCircle.inhale {
+  transform: scale(1.45);
+  background: linear-gradient(135deg, #2bb673 0%, #00a3e0 100%);
+}
+
+.breathingCircle.hold {
+  transform: scale(1.45);
+  background: linear-gradient(135deg, #f39200 0%, #e53935 100%);
+}
+
+.breathingCircle.exhale {
+  transform: scale(1);
+  background: linear-gradient(135deg, #0066c0 0%, #004c97 100%);
+}
+
+.breathingInstruction {
+  margin-top: 24px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ar-blue-dark);
+  font-family: var(--font-heading);
+}
+
+.breathingTimerSec {
+  font-size: 2.2rem;
+  font-weight: 900;
+}
+
+/* MODAL GERAL */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 76, 151, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modalCard {
+  background: white;
+  border-radius: var(--radius-xl);
+  max-width: 540px;
+  width: 100%;
+  padding: 30px;
+  box-shadow: var(--shadow-lg);
+  animation: fadeIn 0.3s ease;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.closeModalBtn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #64748b;
+  cursor: pointer;
+}
+
+/* RELATÓRIO IMPRESSO / MODAL */
+.reportModalCard {
+  background: white;
+  border-radius: var(--radius-xl);
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 36px;
+  box-shadow: var(--shadow-lg);
+}
+
+.reportHeaderPrint {
+  border-bottom: 2px solid var(--ar-blue);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reportTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 0.85rem;
+}
+
+.reportTable th {
+  background: #f0f7ff;
+  border: 1px solid #cbd5e1;
+  padding: 8px 12px;
+  text-align: left;
+  color: var(--ar-blue-dark);
+}
+
+.reportTable td {
+  border: 1px solid #cbd5e1;
+  padding: 8px 12px;
+}
+
+/* ADMIN */
+.adminStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.adminStatCard {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.adminStatVal {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--ar-blue);
+}
+
+.adminStatLbl {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--neutral-500);
+}
+
+.tableContainer {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.userTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.userTable th {
+  background: var(--neutral-100);
+  padding: 12px 16px;
+  font-weight: 700;
+  color: var(--neutral-700);
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.userTable td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--neutral-100);
+  color: var(--neutral-800);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+  .routineGoalsContainer {
+    grid-template-columns: 1fr;
+  }
+  .locationSection {
+    grid-template-columns: 1fr;
+  }
+  .adminStatsGrid {
+    grid-template-columns: 1fr;
+  }
+  .dashNavContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

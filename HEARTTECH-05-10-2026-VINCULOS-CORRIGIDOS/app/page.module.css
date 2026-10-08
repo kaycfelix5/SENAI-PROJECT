@@ -1,0 +1,358 @@
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--neutral-50);
+}
+
+/* TOP HEADER INSTITUCIONAL (ESTILO AUTISMO E REALIDADE) */
+.topBar {
+  background: var(--ar-blue-dark);
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding: 6px 24px;
+}
+
+.topBarContainer {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topBarItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.95;
+}
+
+/* NAVBAR PRINCIPAL */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #ffffff;
+  border-bottom: 2px solid #eef2f6;
+  box-shadow: 0 2px 10px rgba(0, 76, 151, 0.05);
+}
+
+.navContainer {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navBrand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--ar-blue-dark);
+}
+
+.brandLogoBox {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.puzzleSquare {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.navBrandTitle {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brandMainText {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--ar-blue);
+  letter-spacing: -0.01em;
+}
+
+.brandSubText {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--ar-yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.loginBtn {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ar-blue);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--ar-blue);
+  transition: all 0.2s ease;
+}
+
+.loginBtn:hover {
+  background: var(--ar-blue-soft);
+  color: var(--ar-blue-dark);
+}
+
+.registerBtn {
+  font-family: var(--font-heading);
+  background: var(--ar-yellow);
+  color: #ffffff;
+  padding: 9px 22px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 8px rgba(243, 146, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.registerBtn:hover {
+  background: #d97706;
+  transform: translateY(-1px);
+}
+
+/* HERO SECTION - LIMPO E ACOLHEDOR */
+.heroSection {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 24px 50px;
+  text-align: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  background: var(--ar-blue-soft);
+  color: var(--ar-blue-dark);
+  border: 1px solid #c8e3f8;
+  border-radius: var(--radius-full);
+  font-size: 0.825rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: 2.7rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--ar-blue-dark);
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.heroTitleHighlight {
+  color: var(--ar-blue);
+  position: relative;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--neutral-600);
+  margin: 0 auto 32px;
+  max-width: 680px;
+}
+
+.heroActions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* 3 CARDS INSPIRADOS NO DESIGN DE AUTISMO E REALIDADE */
+.section {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px 24px 70px;
+  width: 100%;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.featureCard {
+  background: #ffffff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Faixas coloridas no topo dos cards */
+.topAccentBlue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--ar-blue);
+}
+
+.topAccentYellow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--ar-yellow);
+}
+
+.topAccentGreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--ar-green);
+}
+
+.featureIconBox {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+}
+
+.iconBlue {
+  background: var(--ar-blue-soft);
+  color: var(--ar-blue);
+}
+
+.iconYellow {
+  background: var(--ar-yellow-soft);
+  color: var(--ar-yellow);
+}
+
+.iconGreen {
+  background: var(--ar-green-soft);
+  color: var(--ar-green);
+}
+
+.featureCard h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ar-blue-dark);
+  margin-bottom: 10px;
+}
+
+.featureCard p {
+  font-size: 0.925rem;
+  color: var(--neutral-600);
+  line-height: 1.6;
+}
+
+/* FAIXA INFORMATIVA ESTILO AUTISMO E REALIDADE */
+.infoBanner {
+  background: linear-gradient(135deg, var(--ar-blue-dark) 0%, var(--ar-blue) 100%);
+  color: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 44px 36px;
+  text-align: center;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 24px rgba(0, 76, 151, 0.15);
+}
+
+.infoBanner h2 {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.infoBanner p {
+  font-size: 1rem;
+  color: #d8ecf8;
+  max-width: 580px;
+  margin: 0 auto 22px;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--ar-blue-dark);
+  color: #ffffff;
+  padding: 40px 24px 24px;
+  margin-top: auto;
+  border-top: 4px solid var(--ar-yellow);
+}
+
+.footerContainer {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.footerLinks a {
+  color: #ffffff;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footerLinks a:hover {
+  color: var(--ar-yellow-light);
+}
+
+@media (max-width: 860px) {
+  .heroTitle {
+    font-size: 2.1rem;
+  }
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+  .footerContainer {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+}

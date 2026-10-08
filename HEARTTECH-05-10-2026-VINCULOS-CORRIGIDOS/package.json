@@ -1,0 +1,31 @@
+{
+  "name": "projeto",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:setup": "node --env-file=.env.local scripts/criar-banco.mjs",
+    "db:migrate-users": "node --env-file=.env.local scripts/migrar-usuarios.mjs",
+    "db:migrate-data": "node --env-file=.env.local scripts/migrar-dados.mjs",
+    "db:protect-passwords": "node --env-file=.env.local scripts/proteger-senhas.mjs",
+    "db:migrate": "npm run db:setup && npm run db:migrate-users && npm run db:migrate-data && npm run db:protect-passwords",
+    "doctor": "node --env-file=.env.local scripts/verificar-ambiente.mjs"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "leaflet": "^1.9.4",
+    "next": "16.3.3",
+    "pg": "^8.23.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-leaflet": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.3"
+  }
+}
