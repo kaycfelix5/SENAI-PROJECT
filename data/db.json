@@ -1,0 +1,148 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Administrador",
+      "email": "admin@hearttech.com.br",
+      "phone": "(11) 99999-0000",
+      "role": "administrador",
+      "password": "admin",
+      "birthDate": "1980-01-01"
+    },
+    {
+      "id": 1788460262312,
+      "name": "Kayc Félix",
+      "email": "kaycfelix500@gmail.com",
+      "phone": "1199287544",
+      "birthDate": "2000-01-21",
+      "role": "acompanhante",
+      "password": "Kayc45622033829"
+    },
+    {
+      "id": 1788460337557,
+      "name": "Paulo Seleguim",
+      "email": "paulo@gmail.com",
+      "phone": "11992879546",
+      "birthDate": "2009-02-28",
+      "role": "portador",
+      "password": "Kayc45622033829"
+    },
+    {
+      "id": 1788460756548,
+      "name": "Pedro Gonzales",
+      "email": "kaycfelix@gmail.com",
+      "phone": "194222222",
+      "birthDate": "2009-04-03",
+      "role": "portador",
+      "password": "Kayc45622033829"
+    }
+  ],
+  "portadores": [
+    {
+      "id": 1788460337557,
+      "nome": "Paulo Seleguim",
+      "idade": "17 anos",
+      "condicao": "Acompanhamento Ativo",
+      "humor": "Inquieto / Ansioso",
+      "humorEmoji": "😟",
+      "local": "A definir",
+      "distanciaMetros": 80,
+      "pinX": 52,
+      "pinY": 48,
+      "geofenceMax": 150,
+      "bateria": 90,
+      "rotinas": [
+        {
+          "id": 1788460422773,
+          "hora": "15:00",
+          "titulo": "Treino Pelvico",
+          "concluida": false
+        },
+        {
+          "id": 1788460433761,
+          "hora": "07:00",
+          "titulo": "Aula Yoga",
+          "concluida": false
+        },
+        {
+          "id": 1788460470134,
+          "hora": "22:00",
+          "titulo": "Lutar Sai kio do",
+          "concluida": false
+        },
+        {
+          "id": 1788460482095,
+          "hora": "00:00",
+          "titulo": "Pular na cama",
+          "concluida": false
+        }
+      ],
+      "metas": [
+        {
+          "id": 1788460504854,
+          "titulo": "Pra frente pra tras",
+          "progresso": 0
+        }
+      ],
+      "mensagens": [
+        {
+          "id": 1788460572028,
+          "texto": "Terminei minha atividade! ✅",
+          "hora": "15:36"
+        }
+      ]
+    },
+    {
+      "id": 1788460756548,
+      "nome": "Pedro Gonzales",
+      "idade": "17 anos",
+      "condicao": "Acompanhamento Ativo",
+      "humor": "Calmo",
+      "humorEmoji": "😌",
+      "local": "Não informado",
+      "distanciaMetros": 0,
+      "pinX": 50,
+      "pinY": 50,
+      "geofenceMax": 150,
+      "bateria": 100,
+      "rotinas": [],
+      "metas": [],
+      "mensagens": []
+    }
+  ],
+  "disponiveis": [],
+  "logs": [
+    {
+      "id": 1788460756548,
+      "time": "15:39:16",
+      "type": "CADASTRO",
+      "user": "Pedro Gonzales",
+      "action": "Novo usuário registrado como portador",
+      "level": "success"
+    },
+    {
+      "id": 1788460337557,
+      "time": "15:32:17",
+      "type": "CADASTRO",
+      "user": "Paulo Seleguim",
+      "action": "Novo usuário registrado como portador",
+      "level": "success"
+    },
+    {
+      "id": 1788460262313,
+      "time": "15:31:02",
+      "type": "CADASTRO",
+      "user": "Kayc Félix",
+      "action": "Novo usuário registrado como acompanhante",
+      "level": "success"
+    },
+    {
+      "id": 1,
+      "time": "00:00:00",
+      "type": "INIT",
+      "user": "Sistema",
+      "action": "Banco de dados Heart Tech inicializado. Login de Administrador ativo.",
+      "level": "success"
+    }
+  ]
+}
